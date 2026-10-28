@@ -1,0 +1,53 @@
+{
+  "pipeline_version": "0.2.0",
+  "description": "Configuration for Chicago Open Data ingestion and preprocessing (Milestone 2)",
+  "datasets": {
+    "service_requests_311": {
+      "title": "311 Service Requests",
+      "socrata_id": "v6vf-nfxy",
+      "endpoint": "https://data.cityofchicago.org/resource/v6vf-nfxy.json",
+      "date_field": "created_date",
+      "closed_date_field": "closed_date",
+      "geo_field": "community_area",
+      "id_field": "sr_number",
+      "type_field": "sr_type"
+    },
+    "traffic_crashes": {
+      "title": "Traffic Crashes - Crashes",
+      "socrata_id": "85ca-t3if",
+      "endpoint": "https://data.cityofchicago.org/resource/85ca-t3if.json",
+      "date_field": "crash_date",
+      "id_field": "crash_record_id",
+      "latitude_field": "latitude",
+      "longitude_field": "longitude",
+      "injuries_total_field": "injuries_total",
+      "injuries_fatal_field": "injuries_fatal",
+      "injuries_incapacitating_field": "injuries_incapacitating",
+      "damage_field": "damage"
+    },
+    "community_boundaries": {
+      "title": "Boundaries - Community Areas (current)",
+      "socrata_id": "igwz-8jzy",
+      "endpoint": "https://data.cityofchicago.org/resource/igwz-8jzy.geojson"
+    }
+  },
+  "default_target_year": 2023,
+  "sample_limits": {
+    "initial_test_sample": 5000,
+    "production_sample": 50000
+  },
+  "crash_severity_weights": {
+    "fatal": 20.0,
+    "incapacitating": 10.0,
+    "minor_injury": 2.0,
+    "property_damage_only": 1.0,
+    "notes": "Weights partitioned across disjoint injury categories to avoid double-counting injuries and fatalities."
+  },
+  "research_notes": [
+    "5,000-row sample is used for rapid integration validation and pipeline testing, not full empirical inference.",
+    "Historical end-of-month backlog is reconstructed using creation and closure timestamps; intermediate status changes are not captured by portal.",
+    "Traffic safety metric is an Equivalent Property Damage Only (EPDO) severity score normalized to [0.0, 1.0], not a crash probability.",
+    "Coverage across all 77 Chicago Community Areas is analyzed systematically before sub-grouping."
+  ]
+}
+

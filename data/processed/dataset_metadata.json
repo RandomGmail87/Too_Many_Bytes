@@ -1,0 +1,52 @@
+{
+  "retrieval_timestamp_utc": "2026-10-28T19:37:50.716277+00:00",
+  "target_year": 2023,
+  "datasets": {
+    "service_requests_311": {
+      "socrata_id": "v6vf-nfxy",
+      "file": "service_requests_311.json"
+    },
+    "traffic_crashes": {
+      "socrata_id": "85ca-t3if",
+      "file": "traffic_crashes.json"
+    },
+    "community_boundaries": {
+      "socrata_id": "igwz-8jzy",
+      "file": "community_boundaries.geojson"
+    }
+  },
+  "raw_record_counts": {
+    "raw_311_records": 1000,
+    "raw_crash_records": 1000
+  },
+  "processed_record_counts": {
+    "retained_311_records": 1000,
+    "retained_crash_records": 989,
+    "monthly_community_area_aggregates": 924
+  },
+  "cleaning_decisions": [
+    "311: Parsed 1,000 raw records.",
+    "311: Valid records retained: 1,000.",
+    "311: Dropped 0 records lacking valid community_area.",
+    "311: Dropped 0 records with unparseable created_date.",
+    "Crashes: Parsed 1,000 raw records.",
+    "Crashes: Spatially aligned records retained: 989.",
+    "Crashes: Dropped 11 records unmapped to Chicago community areas.",
+    "Crashes: Dropped 0 records with invalid crash_date."
+  ],
+  "geographic_coverage": {
+    "total_possible_area_months": 924,
+    "observed_area_months": 128,
+    "missing_area_months": 796,
+    "coverage_percentage": 13.85,
+    "unique_community_areas_observed": 76,
+    "total_official_community_areas": 77,
+    "max_observed_monthly_severity_score": 108.0
+  },
+  "limitations": [
+    "Sample dataset size: Initial batches validate the pipeline; larger datasets required for full research.",
+    "Backlog reconstruction assumes tickets remained continuously open between created_date and closed_date; intermediate status updates are unrecorded.",
+    "Crashes lacking geographic coordinates cannot be mapped to community areas and are excluded from neighborhood metrics.",
+    "Traffic safety metric represents normalized Equivalent Property Damage Only (EPDO) severity, not a crash probability."
+  ]
+}

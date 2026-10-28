@@ -144,7 +144,36 @@ The demonstration displays the initial city conditions, monthly neighborhood all
 
 ---
 
-## 6. Running Automated Tests
+## 6. Real Chicago Data Pipeline (Milestone 2)
+
+Milestone 2 establishes a reproducible data pipeline ingesting official Chicago Open Data:
+1. **311 Service Requests (`v6vf-nfxy`):** Ingests service tickets, timestamps, request types, and community areas.
+2. **Traffic Crashes (`85ca-t3if`):** Ingests incident reports, dates, injury breakdowns, and coordinates.
+3. **Boundaries - Community Areas (`igwz-8jzy`):** Polygons for all 77 Chicago Community Areas used by the ray-casting spatial mapper to assign crash coordinates to community areas.
+
+### Data Fetching and Processing Commands
+
+```powershell
+# Fetch Chicago Open Data sample batch (default: 2023, limit: 1,000 or custom)
+python -m ai_mayor.data.fetcher --year 2023 --sample-limit 1000
+
+# Preprocess raw records into monthly community area indicators
+python -m ai_mayor.data.preprocessor --year 2023
+```
+
+Outputs generated:
+- `data/processed/chicago_monthly_community_areas.csv`: Standardized monthly aggregates across all 77 areas x 12 months.
+- `data/processed/chicago_monthly_community_areas.json`: JSON format for downstream models.
+- `data/processed/dataset_metadata.json`: Immutable provenance manifest recording retrieval timestamps, Socrata IDs, cleaning logs, and geographic coverage.
+
+### Methodological & Modeling Notes:
+- **Historical Backlog vs. Inflow:** Reconstructs monthly backlog using `created_date` and `closed_date`. Avoids assuming current status reflects past months.
+- **Traffic Safety Severity (EPDO):** Partitions injuries into disjoint categories (`fatalities`, `incapacitating`, `minor`, `pdo`) to prevent double-counting. Weighted using standard municipal safety weights and normalized to $[0.0, 1.0]$.
+- **Offline Test Integrity:** The test suite uses small local mock fixtures and requires zero network access.
+
+---
+
+## 7. Running Automated Tests
 
 Run the complete test suite via `pytest`:
 
@@ -161,6 +190,14 @@ tests/test_budget.py::test_invalid_action_dimensions_rejected PASSED
 tests/test_budget.py::test_exact_budget_allocation_accepted PASSED
 tests/test_budget.py::test_zero_spending_allowed PASSED
 tests/test_budget.py::test_cumulative_and_renewed_spending_across_steps PASSED
+tests/test_data_pipeline.py::test_schema_raw_311_record_validation PASSED
+tests/test_data_pipeline.py::test_schema_raw_crash_record_validation PASSED
+tests/test_data_pipeline.py::test_spatial_point_in_polygon_ray_casting PASSED
+tests/test_data_pipeline.py::test_spatial_community_mapper_with_synthetic_geojson PASSED
+tests/test_data_pipeline.py::test_clean_raw_311_filters_missing_geo PASSED
+tests/test_data_pipeline.py::test_monthly_aggregation_and_backlog_reconstruction PASSED
+tests/test_data_pipeline.py::test_crash_severity_disjoint_partitioning_no_double_counting PASSED
+tests/test_data_pipeline.py::test_coverage_analysis_matrix_dimensions PASSED
 tests/test_demo.py::test_run_demo_executes_successfully PASSED
 tests/test_demo.py::test_main_cli_entry_point PASSED
 tests/test_environment.py::test_synthetic_city_loads_correctly PASSED
@@ -175,5 +212,5 @@ tests/test_rule_based.py::test_rule_based_full_12_month_episode PASSED
 tests/test_rule_based.py::test_rule_based_outperforms_zero_allocation PASSED
 tests/test_rule_based.py::test_rule_based_determinism PASSED
 
-20 passed in 0.19s
+28 passed in 0.21s
 ```

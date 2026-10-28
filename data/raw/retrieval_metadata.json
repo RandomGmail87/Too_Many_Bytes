@@ -1,0 +1,32 @@
+{
+  "retrieval_timestamp_utc": "2026-10-28T19:37:06.754971+00:00",
+  "target_year": 2023,
+  "sample_limit_applied": 1000,
+  "datasets": {
+    "service_requests_311": {
+      "socrata_id": "v6vf-nfxy",
+      "retrieved_count": 1000,
+      "query": {
+        "$where": "created_date between '2023-01-01T00:00:00' and '2023-12-31T23:59:59'",
+        "$limit": "1000",
+        "$order": "created_date ASC"
+      },
+      "file": "service_requests_311.json"
+    },
+    "traffic_crashes": {
+      "socrata_id": "85ca-t3if",
+      "retrieved_count": 1000,
+      "query": {
+        "$where": "crash_date between '2023-01-01T00:00:00' and '2023-12-31T23:59:59'",
+        "$limit": "1000",
+        "$order": "crash_date ASC"
+      },
+      "file": "traffic_crashes.json"
+    },
+    "community_boundaries": {
+      "socrata_id": "igwz-8jzy",
+      "retrieved_count": 77,
+      "file": "community_boundaries.geojson"
+    }
+  }
+}
