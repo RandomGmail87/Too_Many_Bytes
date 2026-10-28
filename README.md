@@ -130,7 +130,21 @@ pip install -e .
 
 ---
 
-## 5. Running Automated Tests
+## 5. Running the 12-Month CLI Demonstration
+
+To execute a complete 12-month simulation run using the synthetic five-neighborhood city fixture and the rule-based agent:
+
+```powershell
+python -m ai_mayor
+# or explicitly specify seed:
+python -m ai_mayor --seed 42
+```
+
+The demonstration displays the initial city conditions, monthly neighborhood allocations and state transitions, cumulative financial expenditure, and final performance metrics.
+
+---
+
+## 6. Running Automated Tests
 
 Run the complete test suite via `pytest`:
 
@@ -147,6 +161,8 @@ tests/test_budget.py::test_invalid_action_dimensions_rejected PASSED
 tests/test_budget.py::test_exact_budget_allocation_accepted PASSED
 tests/test_budget.py::test_zero_spending_allowed PASSED
 tests/test_budget.py::test_cumulative_and_renewed_spending_across_steps PASSED
+tests/test_demo.py::test_run_demo_executes_successfully PASSED
+tests/test_demo.py::test_main_cli_entry_point PASSED
 tests/test_environment.py::test_synthetic_city_loads_correctly PASSED
 tests/test_environment.py::test_reset_reproducibility PASSED
 tests/test_environment.py::test_step_backlog_reduction_and_nonnegativity PASSED
@@ -159,5 +175,5 @@ tests/test_rule_based.py::test_rule_based_full_12_month_episode PASSED
 tests/test_rule_based.py::test_rule_based_outperforms_zero_allocation PASSED
 tests/test_rule_based.py::test_rule_based_determinism PASSED
 
-18 passed in 0.66s
+20 passed in 0.19s
 ```
