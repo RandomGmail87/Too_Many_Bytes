@@ -1,0 +1,416 @@
+{
+  "metadata": {
+    "source_datasets": {
+      "appropriations_2025": "t59y-fr3k",
+      "mid_year_grants_925": "iyu8-jkf8"
+    },
+    "total_citywide_authorized_appropriation": 18935274950.0,
+    "total_infrastructure_authorized_appropriation": 2809347211.0,
+    "total_departments": 47,
+    "disclaimer": "Appropriations represent legal authorized expenditure limits enacted in the 2025 Budget Ordinance, not actual audited spending."
+  },
+  "infrastructure_departments": {
+    "Department of Streets and Sanitation": {
+      "department_description": "Department of Streets and Sanitation",
+      "total_authorized_appropriation": 352858177.0,
+      "operating_accounts_count": 125,
+      "total_grant_budget": 3000000.0,
+      "total_grant_expended": 0.0,
+      "grant_projects_count": 1
+    },
+    "Chicago Department of Transportation": {
+      "department_description": "Chicago Department of Transportation",
+      "total_authorized_appropriation": 2039303751.0,
+      "operating_accounts_count": 270,
+      "total_grant_budget": 1254687480.02,
+      "total_grant_expended": 651391508.3099998,
+      "grant_projects_count": 256
+    },
+    "Department of Water Management": {
+      "department_description": "Department of Water Management",
+      "total_authorized_appropriation": 417185283.0,
+      "operating_accounts_count": 168,
+      "total_grant_budget": 13208055.0,
+      "total_grant_expended": 5818093.609999999,
+      "grant_projects_count": 4
+    }
+  },
+  "all_departments": {
+    "Office of the Mayor": {
+      "department_description": "Office of the Mayor",
+      "total_authorized_appropriation": 19646654.0,
+      "operating_accounts_count": 30,
+      "total_grant_budget": 0.0,
+      "total_grant_expended": 0.0,
+      "grant_projects_count": 0
+    },
+    "Office of Inspector General": {
+      "department_description": "Office of Inspector General",
+      "total_authorized_appropriation": 14216198.0,
+      "operating_accounts_count": 103,
+      "total_grant_budget": 0.0,
+      "total_grant_expended": 0.0,
+      "grant_projects_count": 0
+    },
+    "Office of Budget and Management": {
+      "department_description": "Office of Budget and Management",
+      "total_authorized_appropriation": 18568096.0,
+      "operating_accounts_count": 32,
+      "total_grant_budget": 0.0,
+      "total_grant_expended": 0.0,
+      "grant_projects_count": 0
+    },
+    "Department of Technology and Innovation": {
+      "department_description": "Department of Technology and Innovation",
+      "total_authorized_appropriation": 82083894.0,
+      "operating_accounts_count": 73,
+      "total_grant_budget": 6379500.0,
+      "total_grant_expended": 3599999.89,
+      "grant_projects_count": 1
+    },
+    "City Council": {
+      "department_description": "City Council",
+      "total_authorized_appropriation": 36805986.0,
+      "operating_accounts_count": 189,
+      "total_grant_budget": 292574.58,
+      "total_grant_expended": 292574.58,
+      "grant_projects_count": 1
+    },
+    "Department of Housing": {
+      "department_description": "Department of Housing",
+      "total_authorized_appropriation": 248512603.0,
+      "operating_accounts_count": 82,
+      "total_grant_budget": 379860121.16999996,
+      "total_grant_expended": 227187600.67999998,
+      "grant_projects_count": 33
+    },
+    "Department of Cultural Affairs and Special Events": {
+      "department_description": "Department of Cultural Affairs and Special Events",
+      "total_authorized_appropriation": 72961225.0,
+      "operating_accounts_count": 53,
+      "total_grant_budget": 48727178.29,
+      "total_grant_expended": 41308441.739999995,
+      "grant_projects_count": 40
+    },
+    "Office of City Clerk": {
+      "department_description": "Office of City Clerk",
+      "total_authorized_appropriation": 15093753.0,
+      "operating_accounts_count": 34,
+      "total_grant_budget": 0.0,
+      "total_grant_expended": 0.0,
+      "grant_projects_count": 0
+    },
+    "Department of Finance": {
+      "department_description": "Department of Finance",
+      "total_authorized_appropriation": 112325541.0,
+      "operating_accounts_count": 141,
+      "total_grant_budget": 12508788.9,
+      "total_grant_expended": 2019840.42,
+      "grant_projects_count": 4
+    },
+    "City Treasurer's Office": {
+      "department_description": "City Treasurer's Office",
+      "total_authorized_appropriation": 6539097.0,
+      "operating_accounts_count": 37,
+      "total_grant_budget": 0.0,
+      "total_grant_expended": 0.0,
+      "grant_projects_count": 0
+    },
+    "Department of Administrative Hearings": {
+      "department_description": "Department of Administrative Hearings",
+      "total_authorized_appropriation": 8560776.0,
+      "operating_accounts_count": 18,
+      "total_grant_budget": 0.0,
+      "total_grant_expended": 0.0,
+      "grant_projects_count": 0
+    },
+    "Department of Law": {
+      "department_description": "Department of Law",
+      "total_authorized_appropriation": 45918684.0,
+      "operating_accounts_count": 141,
+      "total_grant_budget": 0.0,
+      "total_grant_expended": 0.0,
+      "grant_projects_count": 0
+    },
+    "Department of Human Resources": {
+      "department_description": "Department of Human Resources",
+      "total_authorized_appropriation": 13367100.0,
+      "operating_accounts_count": 31,
+      "total_grant_budget": 1593705.33,
+      "total_grant_expended": 728268.33,
+      "grant_projects_count": 2
+    },
+    "Department of Procurement Services": {
+      "department_description": "Department of Procurement Services",
+      "total_authorized_appropriation": 13905122.0,
+      "operating_accounts_count": 37,
+      "total_grant_budget": 0.0,
+      "total_grant_expended": 0.0,
+      "grant_projects_count": 0
+    },
+    "Department of Fleet and Facility Management": {
+      "department_description": "Department of Fleet and Facility Management",
+      "total_authorized_appropriation": 557363694.0,
+      "operating_accounts_count": 191,
+      "total_grant_budget": 75078065.9,
+      "total_grant_expended": 21201498.330000002,
+      "grant_projects_count": 12
+    },
+    "Finance General": {
+      "department_description": "Finance General",
+      "total_authorized_appropriation": 8084191518.0,
+      "operating_accounts_count": 346,
+      "total_grant_budget": 0.0,
+      "total_grant_expended": 0.0,
+      "grant_projects_count": 1
+    },
+    "Board of Election Commissioners": {
+      "department_description": "Board of Election Commissioners",
+      "total_authorized_appropriation": 28507734.0,
+      "operating_accounts_count": 28,
+      "total_grant_budget": 0.0,
+      "total_grant_expended": 0.0,
+      "grant_projects_count": 0
+    },
+    "Chicago Department of Public Health": {
+      "department_description": "Chicago Department of Public Health",
+      "total_authorized_appropriation": 690123180.0,
+      "operating_accounts_count": 290,
+      "total_grant_budget": 0.0,
+      "total_grant_expended": 0.0,
+      "grant_projects_count": 0
+    },
+    "Chicago Commission on Human Relations": {
+      "department_description": "Chicago Commission on Human Relations",
+      "total_authorized_appropriation": 2781810.0,
+      "operating_accounts_count": 30,
+      "total_grant_budget": 0.0,
+      "total_grant_expended": 0.0,
+      "grant_projects_count": 0
+    },
+    "Mayor's Office for People with Disabilities": {
+      "department_description": "Mayor's Office for People with Disabilities",
+      "total_authorized_appropriation": 14833880.0,
+      "operating_accounts_count": 53,
+      "total_grant_budget": 0.0,
+      "total_grant_expended": 0.0,
+      "grant_projects_count": 0
+    },
+    "Department of Family and Support Services": {
+      "department_description": "Department of Family and Support Services",
+      "total_authorized_appropriation": 938012869.0,
+      "operating_accounts_count": 195,
+      "total_grant_budget": 1081414364.3300004,
+      "total_grant_expended": 771975310.2499999,
+      "grant_projects_count": 114
+    },
+    "Office of Public Safety Administration": {
+      "department_description": "Office of Public Safety Administration",
+      "total_authorized_appropriation": 152138585.0,
+      "operating_accounts_count": 83,
+      "total_grant_budget": 50220856.20999999,
+      "total_grant_expended": 38594033.27,
+      "grant_projects_count": 7
+    },
+    "Department of Planning and Development": {
+      "department_description": "Department of Planning and Development",
+      "total_authorized_appropriation": 132499758.0,
+      "operating_accounts_count": 58,
+      "total_grant_budget": 270769915.93,
+      "total_grant_expended": 264353036.64999998,
+      "grant_projects_count": 20
+    },
+    "Chicago Police Board": {
+      "department_description": "Chicago Police Board",
+      "total_authorized_appropriation": 509970.0,
+      "operating_accounts_count": 13,
+      "total_grant_budget": 0.0,
+      "total_grant_expended": 0.0,
+      "grant_projects_count": 0
+    },
+    "Chicago Police Department": {
+      "department_description": "Chicago Police Department",
+      "total_authorized_appropriation": 2097056579.0,
+      "operating_accounts_count": 139,
+      "total_grant_budget": 227600969.48999998,
+      "total_grant_expended": 150178479.85000002,
+      "grant_projects_count": 52
+    },
+    "Office of Emergency Management and Communications": {
+      "department_description": "Office of Emergency Management and Communications",
+      "total_authorized_appropriation": 95101008.0,
+      "operating_accounts_count": 52,
+      "total_grant_budget": 16176720.42,
+      "total_grant_expended": 10022428.24,
+      "grant_projects_count": 13
+    },
+    "Chicago Fire Department": {
+      "department_description": "Chicago Fire Department",
+      "total_authorized_appropriation": 834668006.0,
+      "operating_accounts_count": 83,
+      "total_grant_budget": 199028960.11,
+      "total_grant_expended": 168487032.04999998,
+      "grant_projects_count": 23
+    },
+    "Civilian Office of Police Accountability": {
+      "department_description": "Civilian Office of Police Accountability",
+      "total_authorized_appropriation": 15089632.0,
+      "operating_accounts_count": 21,
+      "total_grant_budget": 0.0,
+      "total_grant_expended": 0.0,
+      "grant_projects_count": 0
+    },
+    "Community Commission for Public Safety and Accountability": {
+      "department_description": "Community Commission for Public Safety and Accountability",
+      "total_authorized_appropriation": 3986182.0,
+      "operating_accounts_count": 26,
+      "total_grant_budget": 0.0,
+      "total_grant_expended": 0.0,
+      "grant_projects_count": 0
+    },
+    "Department of Buildings": {
+      "department_description": "Department of Buildings",
+      "total_authorized_appropriation": 39704856.0,
+      "operating_accounts_count": 32,
+      "total_grant_budget": 229000.0,
+      "total_grant_expended": 5457.66,
+      "grant_projects_count": 1
+    },
+    "Department of Business Affairs and Consumer Protection": {
+      "department_description": "Department of Business Affairs and Consumer Protection",
+      "total_authorized_appropriation": 50132350.0,
+      "operating_accounts_count": 52,
+      "total_grant_budget": 58182119.64,
+      "total_grant_expended": 21809829.110000003,
+      "grant_projects_count": 10
+    },
+    "Department of Environment": {
+      "department_description": "Department of Environment",
+      "total_authorized_appropriation": 2399239.0,
+      "operating_accounts_count": 10,
+      "total_grant_budget": 482710.0,
+      "total_grant_expended": 0.0,
+      "grant_projects_count": 1
+    },
+    "Chicago Animal Care and Control": {
+      "department_description": "Chicago Animal Care and Control",
+      "total_authorized_appropriation": 7519976.0,
+      "operating_accounts_count": 22,
+      "total_grant_budget": 0.0,
+      "total_grant_expended": 0.0,
+      "grant_projects_count": 0
+    },
+    "License Appeal Commission": {
+      "department_description": "License Appeal Commission",
+      "total_authorized_appropriation": 206624.0,
+      "operating_accounts_count": 6,
+      "total_grant_budget": 0.0,
+      "total_grant_expended": 0.0,
+      "grant_projects_count": 0
+    },
+    "Board of Ethics": {
+      "department_description": "Board of Ethics",
+      "total_authorized_appropriation": 985480.0,
+      "operating_accounts_count": 15,
+      "total_grant_budget": 0.0,
+      "total_grant_expended": 0.0,
+      "grant_projects_count": 0
+    },
+    "Department of Streets and Sanitation": {
+      "department_description": "Department of Streets and Sanitation",
+      "total_authorized_appropriation": 352858177.0,
+      "operating_accounts_count": 125,
+      "total_grant_budget": 3000000.0,
+      "total_grant_expended": 0.0,
+      "grant_projects_count": 1
+    },
+    "Chicago Department of Transportation": {
+      "department_description": "Chicago Department of Transportation",
+      "total_authorized_appropriation": 2039303751.0,
+      "operating_accounts_count": 270,
+      "total_grant_budget": 1254687480.02,
+      "total_grant_expended": 651391508.3099998,
+      "grant_projects_count": 256
+    },
+    "Chicago Department of Aviation": {
+      "department_description": "Chicago Department of Aviation",
+      "total_authorized_appropriation": 1547505037.0,
+      "operating_accounts_count": 123,
+      "total_grant_budget": 0.0,
+      "total_grant_expended": 0.0,
+      "grant_projects_count": 0
+    },
+    "Department of Water Management": {
+      "department_description": "Department of Water Management",
+      "total_authorized_appropriation": 417185283.0,
+      "operating_accounts_count": 168,
+      "total_grant_budget": 13208055.0,
+      "total_grant_expended": 5818093.609999999,
+      "grant_projects_count": 4
+    },
+    "Chicago Public Library": {
+      "department_description": "Chicago Public Library",
+      "total_authorized_appropriation": 122105043.0,
+      "operating_accounts_count": 35,
+      "total_grant_budget": 27028310.439999998,
+      "total_grant_expended": 10516494.51,
+      "grant_projects_count": 9
+    },
+    "Department of Public Health": {
+      "department_description": "Department of Public Health",
+      "total_authorized_appropriation": 0.0,
+      "operating_accounts_count": 0,
+      "total_grant_budget": 908488365.0799999,
+      "total_grant_expended": 629771635.3799995,
+      "grant_projects_count": 153
+    },
+    "Mayor's Office For People With Disabilities": {
+      "department_description": "Mayor's Office For People With Disabilities",
+      "total_authorized_appropriation": 0.0,
+      "operating_accounts_count": 0,
+      "total_grant_budget": 11977591.83,
+      "total_grant_expended": 6501641.37,
+      "grant_projects_count": 16
+    },
+    "Department of Aviation": {
+      "department_description": "Department of Aviation",
+      "total_authorized_appropriation": 0.0,
+      "operating_accounts_count": 0,
+      "total_grant_budget": 0.0,
+      "total_grant_expended": 0.0,
+      "grant_projects_count": 1
+    },
+    "Commission on Human Relations": {
+      "department_description": "Commission on Human Relations",
+      "total_authorized_appropriation": 0.0,
+      "operating_accounts_count": 0,
+      "total_grant_budget": 1309000.0,
+      "total_grant_expended": 191493.76,
+      "grant_projects_count": 2
+    },
+    "Office of Budget And Management": {
+      "department_description": "Office of Budget And Management",
+      "total_authorized_appropriation": 0.0,
+      "operating_accounts_count": 0,
+      "total_grant_budget": 1220648458.57,
+      "total_grant_expended": 1191826746.71,
+      "grant_projects_count": 6
+    },
+    "Office of The Mayor": {
+      "department_description": "Office of The Mayor",
+      "total_authorized_appropriation": 0.0,
+      "operating_accounts_count": 0,
+      "total_grant_budget": 4405731.59,
+      "total_grant_expended": 3944688.25,
+      "grant_projects_count": 5
+    },
+    "City Clerk": {
+      "department_description": "City Clerk",
+      "total_authorized_appropriation": 0.0,
+      "operating_accounts_count": 0,
+      "total_grant_budget": 38260.0,
+      "total_grant_expended": 35475.0,
+      "grant_projects_count": 1
+    }
+  }
+}

@@ -1,7 +1,11 @@
 """Data fetcher module for Chicago Open Data SODA API.
 
-This module retrieves raw sample batches of 311 Service Requests, Traffic Crashes,
-and Community Area Boundaries directly from data.cityofchicago.org.
+This module retrieves raw batches of:
+1. 311 Service Requests (v6vf-nfxy)
+2. Traffic Crashes (85ca-t3if)
+3. Boundaries - Community Areas (igwz-8jzy)
+4. Budget - 2025 Budget Ordinance - Appropriations (t59y-fr3k)
+5. Mid-Year Grants 925 (iyu8-jkf8)
 
 Uses standard library urllib.request to avoid external HTTP dependencies.
 """
@@ -51,21 +55,74 @@ def fetch_soda_resource(
         return json.loads(body)
 
 
-def fetch_chicago_datasets(
-    year: int = 2023,
-    sample_limit: int = 5000,
-    output_dir: Optional[Path | str] = None,
-) -> Dict[str, Any]:
-    """Retrieve sample datasets for 311 requests, crashes, and boundaries.
+def fetch_budget_datasets(output_dir: Optional[Path | str] = None) -> Dict[str, Any]:
+    """Retrieve 2025 Budget Ordinance Appropriations and Mid-Year Grants.
 
     Args:
-        year: Calendar year to query.
-        sample_limit: Maximum number of rows to retrieve per dataset.
         output_dir: Directory where raw JSON files should be stored.
 
     Returns:
         Dict[str, Any]: Retrieval summary metadata.
     """
+    if output_dir is None:
+        base_dir = Path(__file__).resolve().parent.parent.parent.parent
+        target_dir = base_dir / "data" / "raw"
+    else:
+        target_dir = Path(output_dir)
+
+    target_dir.mkdir(parents=True, exist_ok=True)
+    timestamp_utc = datetime.now(timezone.utc).isoformat()
+
+    print("Fetching Chicago Municipal Budget Datasets...")
+
+    # 1. Fetch 2025 Budget Ordinance Appropriations (t59y-fr3k)
+    print("  -> Downloading 2025 Budget Ordinance Appropriations (t59y-fr3k)...")
+    app_data = fetch_soda_resource(
+        "https://data.cityofchicago.org/resource/t59y-fr3k.json",
+        {"$limit": "5000"},  # Entire dataset is ~3,477 rows
+    )
+    app_path = target_dir / "budget_appropriations_2025.json"
+    with open(app_path, "w", encoding="utf-8") as f:
+        json.dump(app_data, f)
+    print(f"     Saved {len(app_data):,} appropriation records to {app_path.name}")
+
+    time.sleep(1.0)
+
+    # 2. Fetch Mid-Year Grants 925 (iyu8-jkf8)
+    print("  -> Downloading Mid-Year Grants 925 (iyu8-jkf8)...")
+    grant_data = fetch_soda_resource(
+        "https://data.cityofchicago.org/resource/iyu8-jkf8.json",
+        {"$limit": "5000"},  # Entire dataset is ~789 rows
+    )
+    grant_path = target_dir / "mid_year_grants_925.json"
+    with open(grant_path, "w", encoding="utf-8") as f:
+        json.dump(grant_data, f)
+    print(f"     Saved {len(grant_data):,} grant records to {grant_path.name}")
+
+    summary = {
+        "retrieval_timestamp_utc": timestamp_utc,
+        "datasets": {
+            "budget_appropriations_2025": {
+                "socrata_id": "t59y-fr3k",
+                "retrieved_count": len(app_data),
+                "file": app_path.name,
+            },
+            "mid_year_grants_925": {
+                "socrata_id": "iyu8-jkf8",
+                "retrieved_count": len(grant_data),
+                "file": grant_path.name,
+            },
+        },
+    }
+    return summary
+
+
+def fetch_chicago_datasets(
+    year: int = 2023,
+    sample_limit: int = 5000,
+    output_dir: Optional[Path | str] = None,
+) -> Dict[str, Any]:
+    """Retrieve sample datasets for 311 requests, crashes, and boundaries."""
     if output_dir is None:
         base_dir = Path(__file__).resolve().parent.parent.parent.parent
         target_dir = base_dir / "data" / "raw"
@@ -163,7 +220,13 @@ def fetch_chicago_datasets(
 def main(argv: Optional[List[str]] = None) -> int:
     """CLI entry point for data fetcher."""
     parser = argparse.ArgumentParser(
-        description="Retrieve Chicago Open Data samples from the Socrata SODA API."
+        description="Retrieve Chicago Open Data datasets from the Socrata SODA API."
+    )
+    parser.add_argument(
+        "--dataset",
+        choices=["all", "311", "crashes", "boundaries", "budget"],
+        default="all",
+        help="Dataset to fetch (default: all)",
     )
     parser.add_argument("--year", type=int, default=2023, help="Target calendar year (default: 2023)")
     parser.add_argument(
@@ -175,7 +238,10 @@ def main(argv: Optional[List[str]] = None) -> int:
     args = parser.parse_args(argv)
 
     try:
-        fetch_chicago_datasets(year=args.year, sample_limit=args.sample_limit)
+        if args.dataset in ["all", "budget"]:
+            fetch_budget_datasets()
+        if args.dataset in ["all", "311", "crashes", "boundaries"]:
+            fetch_chicago_datasets(year=args.year, sample_limit=args.sample_limit)
         return 0
     except Exception as e:
         print(f"[ERROR] Failed to fetch Chicago Open Data: {e}", file=sys.stderr)
@@ -184,4 +250,3 @@ def main(argv: Optional[List[str]] = None) -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-

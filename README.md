@@ -173,7 +173,29 @@ Outputs generated:
 
 ---
 
-## 7. Running Automated Tests
+## 7. Chicago Budget Ingestion (Pivot Phase 1)
+
+Ingests authorized spending ceilings enacted by City Council and active grant commitments:
+1. **2025 Budget Ordinance Appropriations (`t59y-fr3k`):** Complete ordinance with 3,477 appropriation line items across 47 city departments ($18.9B citywide, $2.8B municipal infrastructure services).
+2. **Mid-Year Grants 925 (`iyu8-jkf8`):** Project-to-date grant budgets, encumbrances, and expenditures across 789 projects.
+
+### Budget Commands
+
+```powershell
+# Fetch Budget Ordinance and Grants
+python -m ai_mayor.data.fetcher --dataset budget
+
+# Process, validate, and aggregate departmental budgets
+python -m ai_mayor.data.budget_loader
+```
+
+Outputs generated:
+- `data/processed/chicago_department_budgets_2025.csv`
+- `data/processed/chicago_department_budgets_2025.json`
+
+---
+
+## 8. Running Automated Tests
 
 Run the complete test suite via `pytest`:
 
@@ -190,6 +212,12 @@ tests/test_budget.py::test_invalid_action_dimensions_rejected PASSED
 tests/test_budget.py::test_exact_budget_allocation_accepted PASSED
 tests/test_budget.py::test_zero_spending_allowed PASSED
 tests/test_budget.py::test_cumulative_and_renewed_spending_across_steps PASSED
+tests/test_budget_loader.py::test_parse_appropriations_valid PASSED
+tests/test_budget_loader.py::test_parse_appropriations_handles_invalid_or_negative_amounts PASSED
+tests/test_budget_loader.py::test_parse_grants_valid PASSED
+tests/test_budget_loader.py::test_distinguish_authorized_appropriations_from_actual_expenditures PASSED
+tests/test_budget_loader.py::test_filter_infrastructure_budgets PASSED
+tests/test_budget_loader.py::test_process_budget_datasets_offline PASSED
 tests/test_data_pipeline.py::test_schema_raw_311_record_validation PASSED
 tests/test_data_pipeline.py::test_schema_raw_crash_record_validation PASSED
 tests/test_data_pipeline.py::test_spatial_point_in_polygon_ray_casting PASSED
@@ -212,5 +240,5 @@ tests/test_rule_based.py::test_rule_based_full_12_month_episode PASSED
 tests/test_rule_based.py::test_rule_based_outperforms_zero_allocation PASSED
 tests/test_rule_based.py::test_rule_based_determinism PASSED
 
-28 passed in 0.21s
+34 passed in 0.25s
 ```

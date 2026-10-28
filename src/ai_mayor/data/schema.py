@@ -106,6 +106,70 @@ class MonthlyCommunityAreaRecord:
         return asdict(self)
 
 
+@dataclass(frozen=True)
+class RawAppropriationRecord:
+    """Schema for a single appropriation item from the 2025 Budget Ordinance (t59y-fr3k).
+
+    Note: These represent authorized legal expenditure ceilings voted by City Council,
+    not final audited expenditures.
+    """
+
+    fund_type: str
+    fund_code: str
+    fund_description: str
+    department_number: str
+    department_description: str
+    appropriation_authority: str
+    appropriation_authority_description: str
+    appropriation_account: str
+    appropriation_account_description: str
+    ordinance_amount: float
+
+    def __post_init__(self) -> None:
+        if self.ordinance_amount < 0.0:
+            raise ValueError(f"ordinance_amount must be non-negative, got {self.ordinance_amount}")
+
+
+@dataclass(frozen=True)
+class RawGrantRecord:
+    """Schema for a single grant project record from Mid-Year Grants 925 (iyu8-jkf8)."""
+
+    department_code: str
+    department_description: str
+    fund_code: str
+    grant_project_code: str
+    grant_project_description: str
+    budget: float
+    expended_project_to_date: float
+    encumbrances: float = 0.0
+    funds_available: float = 0.0
+    record_id: Optional[str] = None
+
+    def __post_init__(self) -> None:
+        if self.budget < 0.0:
+            raise ValueError(f"grant budget must be non-negative, got {self.budget}")
+        if self.expended_project_to_date < 0.0:
+            raise ValueError(
+                f"expended amount must be non-negative, got {self.expended_project_to_date}"
+            )
+
+
+@dataclass
+class DepartmentBudgetSummary:
+    """Aggregated authorized budget appropriations and grant tracking for a department."""
+
+    department_description: str
+    total_authorized_appropriation: float = 0.0
+    operating_accounts_count: int = 0
+    total_grant_budget: float = 0.0
+    total_grant_expended: float = 0.0
+    grant_projects_count: int = 0
+
+    def to_dict(self) -> Dict[str, Any]:
+        """Convert to dictionary."""
+        return asdict(self)
+
+
 @dataclass
 class PipelineMetadata:
     """Provenance and execution manifest for the Chicago Open Data pipeline."""
