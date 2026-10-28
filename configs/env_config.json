@@ -1,0 +1,34 @@
+{
+  "simulation_version": "0.1.0",
+  "description": "Simulation environment configuration for AI Mayor City Sim (Milestone 1)",
+  "episode_steps": 12,
+  "monthly_budget": 100000.0,
+  "budget_renewal_model": "renewed_monthly",
+  "allocation_split": {
+    "service_backlog_fraction": 0.8,
+    "traffic_safety_fraction": 0.2
+  },
+  "unit_costs": {
+    "backlog_ticket_resolution_cost": 100.0,
+    "safety_risk_reduction_reference_budget": 50000.0
+  },
+  "dynamics": {
+    "safety_natural_drift": 0.02,
+    "backlog_min_inflow_factor": 0.05
+  },
+  "reward_weights": {
+    "w_backlog": 1.0,
+    "w_safety": 0.5,
+    "w_equity": 0.5
+  },
+  "strict_budget_validation": true,
+  "assumptions_documented": [
+    "Budget of $100,000 is renewed each monthly step (unspent funds do not roll over).",
+    "Each neighborhood allocation is partitioned into service backlog (80%) and traffic safety (20%).",
+    "Safety risk improvements depend strictly on safety-designated funds, not total neighborhood allocation.",
+    "Incoming backlogs and safety drift model monthly service demand and infrastructure wear.",
+    "Reward function normalizes backlog reduction against initial backlog, safety reduction across areas, and penalizes inequality using the Gini coefficient.",
+    "Simulated outcomes do not establish real-world causality."
+  ]
+}
+

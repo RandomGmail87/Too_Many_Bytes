@@ -1,0 +1,56 @@
+{
+  "dataset_metadata": {
+    "type": "synthetic_test_fixture",
+    "disclaimer": "SYNTHETIC TEST DATA ONLY: These values are generated placeholder fixtures for unit and integration testing of the simulation engine. They do not represent actual Chicago Open Data measurements or real-world neighborhood observations.",
+    "version": "1.0.0",
+    "neighborhood_count": 5
+  },
+  "neighborhoods": [
+    {
+      "id": 0,
+      "name": "Synthetic Central Business District",
+      "community_code": "SYN-01",
+      "service_backlog": 250,
+      "traffic_safety_risk": 0.65,
+      "monthly_inflow_rate": 35,
+      "vulnerability_weight": 0.50
+    },
+    {
+      "id": 1,
+      "name": "Synthetic North Corridor",
+      "community_code": "SYN-02",
+      "service_backlog": 120,
+      "traffic_safety_risk": 0.30,
+      "monthly_inflow_rate": 20,
+      "vulnerability_weight": 0.40
+    },
+    {
+      "id": 2,
+      "name": "Synthetic West Industrial District",
+      "community_code": "SYN-03",
+      "service_backlog": 310,
+      "traffic_safety_risk": 0.75,
+      "monthly_inflow_rate": 45,
+      "vulnerability_weight": 0.85
+    },
+    {
+      "id": 3,
+      "name": "Synthetic South Residential Basin",
+      "community_code": "SYN-04",
+      "service_backlog": 400,
+      "traffic_safety_risk": 0.80,
+      "monthly_inflow_rate": 55,
+      "vulnerability_weight": 0.90
+    },
+    {
+      "id": 4,
+      "name": "Synthetic Southwest Transit Node",
+      "community_code": "SYN-05",
+      "service_backlog": 180,
+      "traffic_safety_risk": 0.45,
+      "monthly_inflow_rate": 25,
+      "vulnerability_weight": 0.70
+    }
+  ]
+}
+

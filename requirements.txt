@@ -1,0 +1,5 @@
+# Milestone 1 minimal dependencies
+# Research engine core and test runner only
+numpy>=2.0.0
+pytest>=8.0.0
+
